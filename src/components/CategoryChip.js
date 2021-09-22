@@ -1,8 +1,9 @@
 import React from "react";
+import { Chip } from "../styles/chip";
 
 function CategoryChip(props) {
   const content = props.content;
-  return <div>{content}</div>;
+  return <Chip>{content}</Chip>;
 }
 
 export default CategoryChip;

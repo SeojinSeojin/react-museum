@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MuseumCard from "../components/MuseumCard";
+import { CardContainer } from "../styles/card";
 
 function Home() {
   const [data, setData] = useState({});
@@ -14,11 +15,11 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <CardContainer>
       {data.data
         ? data.data.map((ele) => <MuseumCard key={ele.id} data={ele} />)
         : null}
-    </div>
+    </CardContainer>
   );
 }
 
