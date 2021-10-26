@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import imageBlank from "../statics/images/image-blank.jpg";
 import {
   DetailContainer,
@@ -18,8 +17,9 @@ function Detail() {
     : imageBlank;
   useEffect(() => {
     async function fetchAPI() {
-      const result = await axios(`https://api.artic.edu/api/v1/artworks/${id}`);
-      setData(result.data.data);
+      const result = await fetch(`https://api.artic.edu/api/v1/artworks/${id}`);
+      const resultData = await result.json();
+      setData(resultData.data);
     }
     fetchAPI();
   }, [id]);
